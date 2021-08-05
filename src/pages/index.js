@@ -1,29 +1,41 @@
-import * as React from "react"
+import React from 'react'
 import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import "./myStyles.scss"
+import Section from "../components/section"
+import Welcome from "../components/welcomeTitle"
+import Caption from '../components/caption'
+import ExtrudeLogo from "../components/extrudeLogo"
+import Design from "../components/design"
+import Scene2 from "../components/scene2"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = () => {
+
+  return(
+    <Layout >
+      <Seo title="Home" />
+
+      <Section  cls="home columns" bgColor="#219653">
+        <Welcome className="column" />
+        <ExtrudeLogo className="column" />
+      </Section>
+
+      <Section cls="modelado" bgColor="#EEEEEE" >
+        <Scene2/> 
+        <Caption cCaption="Modelado 3D" color="#219653" txColor="#EEEEEE" />
+      </Section>
+
+      <Section cls="impresion" bgColor="#219653" >
+        <Caption cCaption="Impresion 3D" color="#EEEEEE" txColor="#219653" />
+      </Section>
+      
+      <Section cls="design" bgColor="#EEEEEE" >
+        <Design></Design>
+      </Section>
+     
+    </Layout>
+  )
+}
 
 export default IndexPage

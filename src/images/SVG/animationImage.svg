@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 742 742">
+<defs><style>.cls-1{fill:#219653;}.cls-2{fill:#212121;stroke:#219653;stroke-linecap:square;stroke-linejoin:bevel;stroke-width:7px;}.cls-3{opacity:0.32;}.cls-4{fill:#e3651b;}.cls-5{opacity:0.43;}.cls-6{opacity:0.57;}.cls-7{opacity:0.88;}.cls-10,.cls-8,.cls-9{fill:none;stroke:#ff7900;stroke-miterlimit:10;stroke-width:4px;}.cls-9{stroke-dasharray:12.12 12.12;}.cls-10{stroke-linecap:round;}</style>
+</defs>
+<g id="Layer_2" data-name="Layer 2">
+<g id="Layer_14" data-name="Layer 14">
+<path class="cls-1" d="M659.31,742H82.69L0,659.31V82.69L82.69,0H659.31L742,82.69V659.31Z"/>
+<path class="cls-2" d="M587.81,670.5H154.19L71.5,587.81V154.19L154.19,71.5H587.81l82.69,82.69V587.81Z"/>
+<g class="cls-3">
+<circle class="cls-4" cx="372.09" cy="168.97" r="54.18"/>
+</g>
+<g class="cls-3">
+<circle class="cls-4" cx="372.09" cy="168.97" r="54.18"/>
+</g>
+<g class="cls-3">
+<circle class="cls-4" cx="372.09" cy="200.53" r="54.18"/>
+</g>
+<g class="cls-5">
+<ellipse class="cls-4" cx="372.09" cy="306.19" rx="54.18" ry="67.89"/>
+</g>
+<g class="cls-5">
+<circle class="cls-4" cx="372.09" cy="572.44" r="54.18"/></g>
+<g class="cls-6">
+<ellipse class="cls-4" cx="372.09" cy="466.96" rx="49.7" ry="77.3"/>
+</g>
+<g class="cls-7">
+<path class="cls-4" d="M449.17,600c0,22.34-34.51,29.56-77.08,29.56S295,622.36,295,600s33.42-35.34,76-35.34S449.17,577.68,449.17,600Z"/>
+</g>
+<line class="cls-4" x1="488.39" y1="149.52" x2="488.39" y2="610.09"/>
+<line class="cls-8" x1="488.39" y1="149.52" x2="488.39" y2="155.52"/>
+<line class="cls-9" x1="488.39" y1="167.64" x2="488.39" y2="598.03"/>
+<line class="cls-8" x1="488.39" y1="604.09" x2="488.39" y2="610.09"/>
+<polyline class="cls-10" points="470.36 600.74 488.39 616.07 506.81 600.67"/>
+<polyline class="cls-10" points="469.36 170.85 488.39 149.52 508.81 170.91"/>
+</g>
+</g>
+</svg>

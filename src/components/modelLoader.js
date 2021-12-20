@@ -2,6 +2,7 @@ import React , {Suspense, useState}from 'react';
 import {Model, Box, StandardMaterial, Mesh, useScene } from 'react-babylonjs';
 import { Vector3, Matrix, Color3 } from '@babylonjs/core';
 import "@babylonjs/loaders";
+import '@babylonjs/loaders/glTF';
 
 const ProgressFallback = (props) => (
     <Mesh rotation={props.progressRotation} position={props.center}>
@@ -9,7 +10,7 @@ const ProgressFallback = (props) => (
         position={new Vector3(props.scaleTo / 2, 0, props.scaleTo / 60)}
         setPivotMatrix={[Matrix.Translation(-props.scaleTo, 0, 0)]}
         setPreTransformMatrix={[Matrix.Translation(-props.scaleTo / 2, 0, 0)]}>
-        <StandardMaterial diffuseColor={props.progressBarColor} specularColor={Color3.Black()} />
+        <standardMaterial diffuseColor={props.progressBarColor} specularColor={Color3.Black()} />
       </Box>
       <Box key="back" name="boxBack" height={props.scaleTo / 15} width={props.scaleTo} depth={props.scaleTo / 30}
         position={new Vector3(0, 0, props.scaleTo / -60)}

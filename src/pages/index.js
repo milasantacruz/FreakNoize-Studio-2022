@@ -8,7 +8,7 @@ import Welcome from "../components/welcomeTitle"
 import Caption from '../components/caption'
 import ExtrudeLogo from "../components/extrudeLogo"
 import Design from "../components/design"
-import Scene2 from "../components/scene2"
+import Scene3 from "../components/scene3"
 
 const IndexPage = () => {
 
@@ -22,7 +22,7 @@ const IndexPage = () => {
       </Section>
 
       <Section cls="modelado" bgColor="#EEEEEE" >
-        <Scene2/> 
+        <Scene3/> 
         <Caption cCaption="Modelado 3D" color="#219653" txColor="#EEEEEE" />
       </Section>
 

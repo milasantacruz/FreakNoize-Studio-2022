@@ -30,3 +30,18 @@ import '@babylonjs/loaders';
         rotation={props.modelRotation}
       />
 
+
+    Actions:
+        SwitchBooleanAction
+        SetStateAction
+        SetValueAction
+        IncrementValueAction
+        PlayAnimationAction
+        StopAnimationAction
+        DoNothingAction
+        CombineAction
+        ExecuteCodeAction
+        SetParentAction
+        PlaySoundAction
+        StopSoundAction
+        InterpolateValueAction

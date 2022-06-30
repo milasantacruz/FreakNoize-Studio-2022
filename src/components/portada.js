@@ -16,7 +16,9 @@ const Portada = () => {
                    .fromTo(actors.current[3],{y:-50}, { y:"-390%", duration:1.5,  ease:"elastic.out(1, 0.3)"},"-=1.2")
                    .fromTo(actors.current[3],{y:-50}, { rotation:-108, duration:1.5,  ease:"elastic.out(1, 0.3)"},"-=1.2")
                    .fromTo(actors.current[4],{y:-50}, { y:"-350%", duration:1.5,  ease:"elastic.out(1, 0.3)"},"-=1.2")
-                   .to(actors.current[5], {opacity:1})
+                   .to(actors.current[5], {opacity:1, duration:1.5,  ease:"elastic.out(1, 0.3)"},"-=1.2")
+                   .to(actors.current[6], {opacity:1},"-=2")
+                
 
     },[])
 
@@ -24,15 +26,11 @@ const Portada = () => {
 
     function handleNavigation(e){
         if(window.pageYOffset === 0){
-            //console.log(window.pageYOffset)
-            //setOffset(false)
             setOffset(true)
             console.log(offset)
 
         }
         if(window.pageYOffset === 1){
-            //console.log(window.pageYOffset)
-            //setOffset(true)
             setOffset(false)
             console.log(offset)
         }
@@ -42,13 +40,15 @@ const Portada = () => {
     useEffect(()=>{
         console.log("ofset")
             tl2.current = gsap.timeline({})
-            tl2.current.to(actors.current[5], {opacity:0})
+            tl2.current.to(actors.current[6], {opacity:0})
             .to(actors.current[0], {transformOrigin: "10px -80px 0px", transform:"scale(0.1)", y:"-400%", duration:1, ease:"bounce.out"})
             .to(actors.current[1], {x:"-305px", y:"-640px",  transform:"scale(0.1)", duration:1.5, ease:"bounce.out"},"-=1.2")
             .to(actors.current[2], {transformOrigin: "-30px -80px 0px",transform:"scale(0.1)", x:"-40%", duration:1, ease:"bounce.out"},"-=1.2")
             .to(actors.current[3], {transformOrigin: "79px -10px 0px",transform:"scale(0.1)", x:"-40%", duration:1, ease:"bounce.out"},"-=1.2")
             .to(actors.current[4], {transformOrigin: "-70px -80px 0px",transform:"scale(0.1)", x:"-40%", duration:1, ease:"bounce.out"},"-=1.2")
-            .to(svg.current, {attr:{ viewBox:"0 0 1920 50", duration:0.2, ease:"bounce.in"}})
+            .to(actors.current[5], {letterSpacing:"13px", fontSize:"1em", ease:"elastic.out(1, 0.3)"},"-=1.2")
+            .to(actors.current[5], {attr:{ fontSize:"1em" , transform:"matrix(1 0 0 1 9 50)", duration:0.2, ease:"bounce.in"}},"-=1.2")
+            .to(svg.current, {attr:{ viewBox:"0 0 1920 52", duration:0.2, ease:"bounce.in"}})
             
 
     },[])
@@ -102,8 +102,12 @@ const Portada = () => {
                     c-9.92,15.73-45.84,74.64-55.56,89.16c-7.43,10.43-16.13,24.28-26.28,28.72v1.13c9.73,4.69,18.69,16.78,26.47,26.47
                     c10.24,12.79,53.72,75.51,64.01,89.91v1.13c-70.71,4.76-81.57-16.86-116-72.08v0.38c-6.11-7.91-15.92-26.65-27.4-26.65V1080.76z"/>
             </g>
+
+            
+            <text ref={elem => {actors.current[5] = elem}} transform="matrix(1 0 0 1 1700 280)" class="studiotext">STUDIO</text>
+
             </svg>
-            <p ref={elem => {actors.current[5] = elem}} className="scrolltext">scroll</p>
+            <p ref={elem => {actors.current[6] = elem}} className="scrolltext">scroll</p>
         </div>
     );
 }

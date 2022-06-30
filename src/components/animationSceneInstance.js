@@ -5,7 +5,7 @@ import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
 import {Vector3, Color3, AnimationGroup, Tools} from '@babylonjs/core';
 import {SceneLoader} from '@babylonjs/core/Loading/sceneLoader'
 import SceneComponent from "babylonjs-hook"
-import "@babylonjs/inspector"
+//import "@babylonjs/inspector"
 import "@babylonjs/loaders";
 import '@babylonjs/loaders/glTF';
 //https://playground.babylonjs.com/#S7E00P#49
@@ -31,7 +31,7 @@ const AnimationsceneInstance = () => {
         //scene.ambientColor = new Color3(0.5, 0.2, 1);
         
     //para usar importMeshAsync es necesario convertir OnSceneReady en una funcion asincrona
-    var danceLoader = await SceneLoader.ImportMeshAsync("", "/static/4bf8427cef34f72d49420fc738e1d1bb/", "dance.gltf", scene);
+    var danceLoader = await SceneLoader.ImportMeshAsync("", "/static/4dda568711882e6675fe9441a23e80c3/", "dance.gltf", scene);
    
     //DANCER
     dancer = danceLoader.meshes[0].getChildren()[0];
@@ -72,7 +72,7 @@ const AnimationsceneInstance = () => {
 
     //create 10 dancer clones, each with unique position/rotation data.
     //also create 10 new animation groups with targeted animations applied to the newly cloned meshes
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 10; i++) {
         var dancerClone = dancer.clone("dancerClone" + i);
         //console.log(dancer.meshes.length);
         dancerClone.scaling = new Vector3(2, 2, 2);

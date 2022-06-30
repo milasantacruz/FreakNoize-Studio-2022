@@ -1,3 +1,15 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
+const strapiConfig = {
+  apiURL: process.env.STRAPI_API_URL,
+  accessToken: process.env.STRAPI_TOKEN,
+  collectionTypes: ['galeria'],
+  singleTypes: [],
+};
+
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -17,6 +29,10 @@ module.exports = {
         display: 'swap'
       }
     },
+     {
+       resolve: `gatsby-source-strapi`,
+       options: strapiConfig,
+     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

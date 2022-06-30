@@ -24,7 +24,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <Menu/>
+      {/* <Menu/> */}
       <div className="sectionsWrapper">
         <main>{children}</main>
 

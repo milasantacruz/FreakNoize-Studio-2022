@@ -5,7 +5,7 @@ import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
 import {Vector3, Color3, AnimationGroup} from '@babylonjs/core';
 import {SceneLoader} from '@babylonjs/core/Loading/sceneLoader'
 import SceneComponent from "babylonjs-hook"
-import "@babylonjs/inspector"
+//import "@babylonjs/inspector"
 import "@babylonjs/loaders";
 import '@babylonjs/loaders/glTF';
 
@@ -13,7 +13,7 @@ var dancer;
 const Playpausescene = () => {
     const onSceneReady = async scene =>{
          //debugLayer
-    scene.debugLayer.show();
+   // scene.debugLayer.show();
        //CAMERA
        var camera = new ArcRotateCamera("camera1", 0,0,10, new Vector3(0,0,0), scene);
        camera.setTarget(Vector3.Zero());
@@ -31,7 +31,7 @@ const Playpausescene = () => {
         //scene.ambientColor = new Color3(0.5, 0.2, 1);
         
     //para usar importMeshAsync es necesario convertir OnSceneReady en una funcion asincrona
-    var danceLoader = await SceneLoader.ImportMeshAsync("", "/static/4bf8427cef34f72d49420fc738e1d1bb/", "dance.gltf", scene);
+    var danceLoader = await SceneLoader.ImportMeshAsync("", "/static/4dda568711882e6675fe9441a23e80c3/", "dance.gltf", scene);
     dancer = danceLoader.meshes[0].getChildren()[0];
     dancer.position.z = 0;
     //remove the top level root node

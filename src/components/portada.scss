@@ -1,0 +1,21 @@
+$logo-color: #000026;
+$verde1 : #219653;
+$claro : #EEEEEE;
+$naranja : #E3651B;
+
+	.st0{fill:#930000;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#00255B;}
+	.st3{fill:#001428;}
+	.st4{fill:#004496;}
+	.pru{fill:#FFFFFF;}
+    .portada-wrapper{
+		position: fixed;
+		background-color:black;
+		z-index:1;
+		.scrolltext {
+			position: absolute;
+			bottom: 10%;
+			left: 50%;
+		  }
+    }

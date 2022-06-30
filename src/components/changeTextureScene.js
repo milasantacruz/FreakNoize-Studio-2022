@@ -3,7 +3,7 @@ import SceneComponent from "babylonjs-hook";
 import {HemisphericLight} from '@babylonjs/core/Lights/hemisphericLight'
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
 import {Vector3, Color3,Mesh, EquiRectangularCubeTexture, PhotoDome, Texture, PBRMaterial} from '@babylonjs/core';
-import "@babylonjs/inspector"
+//import "@babylonjs/inspector"
 import "@babylonjs/loaders"
 import "@babylonjs/loaders/glTF"
 

@@ -67,6 +67,10 @@
      align-items:center;
  }
 
+ .home2{
+    position:relative;
+ }
+
  .mySplit{
      display:inline-block;
  }
@@ -74,11 +78,13 @@
  .mySections{
      width: 100vw;
       height: auto; //modo normal
-     height: 100vh; //modo develop
+     //height: 100vh; //modo develop
  }
 
  .welcome{
-    
+     position:absolute;
+     top: 55%;
+     left: 2%;
      max-width:45vh;
      max-height:45vh;
      padding:0.5em;

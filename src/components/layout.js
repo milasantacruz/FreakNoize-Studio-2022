@@ -8,6 +8,8 @@ import React from 'react'
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import "./layout.css"
+
+
 import Menu from "./menu"
 
 const Layout = ({ children }) => {
@@ -24,14 +26,9 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {/* <Menu/> */}
-      <div className="sectionsWrapper">
+       
         <main>{children}</main>
-
-        <footer>
         
-        </footer>
-      </div>
     </>
   )
 }

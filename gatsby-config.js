@@ -5,7 +5,7 @@ require('dotenv').config({
 const strapiConfig = {
   apiURL: process.env.STRAPI_API_URL,
   accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: ['galeria'],
+  collectionTypes: [`galeria-seleccion`],
   singleTypes: [],
 };
 
@@ -24,7 +24,8 @@ module.exports = {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
         fonts: [
-          `Roboto\:100, 300, 500`,       
+          `Roboto\:100, 300, 500`, 
+          `Bakbak+One\: 400`      
         ],
         display: 'swap'
       }

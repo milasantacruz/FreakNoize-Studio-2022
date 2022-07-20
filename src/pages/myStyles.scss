@@ -10,6 +10,10 @@
 
  @import "~bulma/bulma.sass";
 
+ main{
+    height:100vh
+ }
+
  .myNav{
      text-align: center;
      background-color: rgba(0, 128, 0, 0);

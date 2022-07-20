@@ -1,8 +1,15 @@
-.redes_wrapper{
+.redesWrapper {
+        background-color: black;
+        //position: fixed;
+        bottom: 1%;
+        right: 0;
+        left: 0;
+      }
+.redesIcon{
         text-align: center;
-        
+        color:greenyellow;
 }
 
-.redesIcon{
-        color:greenyellow;
+.redesIcon:hover{
+        color:#666666;
 }

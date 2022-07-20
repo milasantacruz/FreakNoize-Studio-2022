@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import {HemisphericLight} from '@babylonjs/core/Lights/hemisphericLight'
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
 import SceneComponent from "babylonjs-hook"
@@ -71,4 +71,4 @@ const LoadGltf = () => {
     );
 }
 
-export default LoadGltf;
+export default LoadGltf;*/

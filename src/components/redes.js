@@ -5,10 +5,10 @@ import "./redes.scss"
 
 const Redes = () => {
     return (
-        <div className="columns ">
-            <div className="column redes_wrapper" > <a href="https://www.behance.net/FreakNoizeStudio" ><FontAwesomeIcon className="redesIcon" icon={faBehance}/></a> </div>
-            <div className="column redes_wrapper" > <a  href="https://www.linkedin.com/in/camilo-moreno-dsgn/"><FontAwesomeIcon className="redesIcon" icon={faLinkedin}/></a> </div>
-            <div className="column redes_wrapper" ><a className="redesIcon" href="https://www.instagram.com/freaknoizr/" ><FontAwesomeIcon  icon={faInstagram}/></a></div>
+        <div className="columns is-mobile redesWrapper">
+             <a className="redesIcon column" href="https://www.behance.net/FreakNoizeStudio" ><FontAwesomeIcon icon={faBehance}/></a> 
+             <a className="redesIcon column" href="https://www.linkedin.com/in/camilo-moreno-dsgn/"><FontAwesomeIcon icon={faLinkedin}/></a> 
+            <a className="redesIcon column" href="https://www.instagram.com/freaknoizr/" ><FontAwesomeIcon  icon={faInstagram}/></a>
         </div>
     );
 }

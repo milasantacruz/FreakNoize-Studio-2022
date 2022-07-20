@@ -3,29 +3,70 @@ $verde1 : #219653;
 $claro : #EEEEEE;
 $naranja : #E3651B;
 
-	.st0{fill:#930000;}
-	.st1{fill:#FFFFFF;}
-	.st2{fill:#00255B;}
-	.st3{fill:#001428;}
-	.st4{fill:#004496;}
-	.pru{fill:#FFFFFF;}
+
     .portada-wrapper{
+		
 		position: fixed;
-		background-color:black;
-		z-index:1;
-		.scrolltext {
-			opacity:0;
+		z-index:20;
+		height:fit-content;
+
+		.video-player{
 			position: absolute;
-			bottom: 10%;
-			left: 50%;
+			z-index: -1;
+		}
+		.scrolltext {
+			position: absolute;
+			bottom: 5%;
+			left: 48.5%;
 			font-family: 'Bakbak One', cursive;
+			cursor:pointer;
 		  }
 
-		  .studiotext{
-			opacity:0;
-			font-family: 'Bakbak One', cursive;
-			fill:$claro;
-			font-size:3em;
+		.svgPortada{
+			> rect {
+				-webkit-mask: url(#mask);
+				mask: url(#mask);
+			  }
+			  
+			  rect {
+				fill: #fff;
+			  }
 
-		  }
+			  .bgBlack{
+				fill: #000000;
+			  }
+		
+	
+			  .studiotext{
+				opacity:0;
+				font-family: 'Bakbak One', cursive;
+				//fill:$claro;
+				font-size:3em;
+	
+			  }
+	
+			  .menuitem{
+				font-family: 'Bakbak One', cursive;
+				fill:greenyellow;
+				cursor:pointer;
+				opacity:0;
+			  }
+		}
+
+		
     }
+
+	//PORTADA MOBILE
+
+	//QUERY
+
+	@media(max-width: 576px){
+		.portada-wrapper{
+			height: 100%;
+
+			.video-player{
+				max-width: fit-content;
+			}
+
+		}
+	}

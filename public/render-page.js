@@ -3082,7 +3082,7 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-google-fonts/gatsby-ssr */ "./node_modules/gatsby-plugin-google-fonts/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "fonts": ["Roboto:100, 300, 500"],
+    "fonts": ["Roboto:100, 300, 500", "Bakbak+One: 400"],
     "display": "swap"
   }
 }, {

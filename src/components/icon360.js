@@ -2,6 +2,7 @@ import React, {useState, useEffect, useRef} from 'react';
 import lottie from "lottie-web"
 import IconLottie from "../../content/56881-nuvo360.json"
 import gsap from "gsap"
+import MediaQuery from 'react-responsive';
 const Icon360 = () => {
 
     useEffect(()=>{
@@ -23,17 +24,36 @@ const Icon360 = () => {
 
       
     return (
-       <div
-       ref={elem=>{el.current = elem}}
-       style={{
-            opacity: "0%",
-            width: "80px",
-            bottom: "3%",
-            position: "absolute",
-            left: "48%",
-       }}
-        id="lottieFile">
+       <div>
+        <MediaQuery minWidth={767} >
+            <div
+          ref={elem=>{el.current = elem}}
+          style={{
+                opacity: "0%",
+                width: "80px",
+                bottom: "3%",
+                position: "absolute",
+                left: "48%",
+          }}
+            id="lottieFile">
 
+          </div>
+        </MediaQuery>
+
+        <MediaQuery maxWidth={767} >
+            <div
+          ref={elem=>{el.current = elem}}
+          style={{
+                opacity: "0%",
+                width: "80px",
+                bottom: "3%",
+                position: "absolute",
+                left: "39%",
+          }}
+            id="lottieFile">
+
+          </div>
+        </MediaQuery>
        </div>
     );
 }

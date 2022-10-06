@@ -2,12 +2,12 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
-const strapiConfig = {
-  apiURL: process.env.STRAPI_API_URL,
-  accessToken: process.env.STRAPI_TOKEN,
-  collectionTypes: [`galeria-seleccion`],
-  singleTypes: [],
-};
+ const strapiConfig = {
+   apiURL: process.env.STRAPI_API_URL,
+   accessToken: process.env.STRAPI_TOKEN,
+   collectionTypes: [`servicio`],
+   singleTypes: [],
+ };
 
 
 module.exports = {
@@ -25,15 +25,16 @@ module.exports = {
       options: {
         fonts: [
           `Roboto\:100, 300, 500`, 
-          `Bakbak+One\: 400`      
+          `Bakbak+One\: 400` ,
+          `Philosopher\: 400`      
         ],
         display: 'swap'
       }
     },
-     {
-       resolve: `gatsby-source-strapi`,
-       options: strapiConfig,
-     },
+      {
+        resolve: `gatsby-source-strapi`,
+        options: strapiConfig,
+      },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

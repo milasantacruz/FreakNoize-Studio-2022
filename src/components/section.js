@@ -1,21 +1,103 @@
-import React from 'react';
-const Section = (props) => {
+import React, {useState,useEffect} from 'react';
+import "./section.scss"
+import MediaInfo from "./mediaInfo"
+import { useSpring, animated } from 'react-spring'
+import {getImage, GatsbyImage} from "gatsby-plugin-image"
+const Section = ({data, prop1}) => {
 
-    var bgColor = props.bgColor;
-    var children = props.children;
-    var cls = props.cls;
-    //console.log(bgColor);
+    //console.log(data.node.descripcion.data.descripcion)
+    var img = getImage(data.node.imagenes[0].localFile)
 
-    var styleSection = {
-        backgroundColor: bgColor,
+    // const propsL = useSpring({ to: { opacity: 1, x:"0px"}, from: { opacity: 0, x:"-500px"} })
+    //const propsR = useSpring({ to: { opacity: 1, x:"0px"}, from: { opacity: 0, x:"1500px"} })
+
+    var [intersec, setIntersec] = useState(false)
+    useEffect(()=>{
+        let callback = (entries, observer) => {
+            entries.forEach(entry => {
+            // from MDN:
+              // Each entry describes an intersection change for one observed
+              // target element:
+              //   entry.boundingClientRect
+              //   entry.intersectionRatio
+              //   entry.intersectionRect
+              //   entry.isIntersecting
+              //   entry.rootBounds
+              //   entry.target
+              //   entry.time
+              //entry.target.innerHTML = entry.isIntersecting ? 'I am in view!' : 'I am not in view';
+              //do whatever you want to do when the div goes out of or comes into the viewport
+              entry.isIntersecting ? setIntersec(true):setIntersec(false)
+            });
+          };
+          
+          const divs = document.querySelectorAll('.column');
+          const observer = new IntersectionObserver(callback);
+          divs.forEach(div => {
+            observer.observe(div);  
+          });
+    },[])
+
+    useEffect(()=>{
+        console.log(intersec)
+    },[intersec])
+    
+    if(prop1){
+        return (
+            
+            <div className="section100 section">
+                <div className="columns">
+                    <div  className="column infoColumn">
+                        {
+                            intersec?
+                            <div></div>
+                            :
+                            <MediaInfo 
+                        titulo={data.node.titulo} 
+                        des={data.node.descripcion.data.descripcion}
+                        pos={prop1}
+                         />
+                        }
+                    </div>
+                    <div  className="column">
+                        {
+                            intersec?
+                            <div></div>:
+                            <GatsbyImage image={img} alt={data.node.titulo} />
+                        
+                        }
+                    </div>
+                </div>
+            </div>
+        );
+    }else{
+        return (
+            <div className="section100 section">
+                <div className="columns">
+                <div className="column">
+                        {
+                            intersec?
+                            <div></div>
+                            :
+                            <GatsbyImage image={img} alt={data.node.nombre} /> 
+                        }
+                    </div>
+                    <div className="column infoColumn">
+                        {
+                            intersec?
+                            <div></div>
+                            :
+                            <MediaInfo 
+                            titulo={data.node.nombre} 
+                            des={data.node.descripcion.data.descripcion}
+                            />
+                        }
+                    </div>
+                    
+                </div>
+            </div>
+        );
     }
-    return (
-        <div className="mySections" style={styleSection}>
-            
-                 <main className={cls}>{children}</main>
-            
-        </div>
-    );
 }
 
 export default Section;

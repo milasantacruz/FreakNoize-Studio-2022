@@ -4,9 +4,10 @@ import {HemisphericLight} from '@babylonjs/core/Lights/hemisphericLight'
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
 import {Vector3, Color3,Mesh, EquiRectangularCubeTexture, PhotoDome, Texture, PBRMaterial} from '@babylonjs/core';
 //import "@babylonjs/inspector"
-import Icon360 from "./icon360"
+import Icon360 from "./old/icon360"
 import "@babylonjs/loaders"
 import "@babylonjs/loaders/glTF"
+import "./changetexturescene.scss"
 
 const Changetexturescene = () => {
     const onSceneReady = async scene =>{
@@ -26,7 +27,7 @@ const Changetexturescene = () => {
         var light = new HemisphericLight("light", new Vector3(0,1,0), scene);
         light.intensity = 0.5;
         // DOME IMAGES
-        var dome = new PhotoDome("dome", "/static/e9133625d13090ba9e5d0434d5a8c5ca/Nebula02_8K.png", {resolution: 32, size:500});
+        var dome = new PhotoDome("dome", "/static/28c41273f8a761e43bb763c5c01eafb9/Nebula02_8k.jpg", {resolution: 32, size:500});
         dome.imageDome = PhotoDome.MODE_MONOSCOPIC;
         var sphere = Mesh.CreateSphere("sphere", 16, 2, scene);
         var pbr = new PBRMaterial("pbr", scene);
@@ -43,7 +44,7 @@ const Changetexturescene = () => {
             height:"100%"
              }} >
             <Icon360/>
-            <SceneComponent antialias onSceneReady={onSceneReady} id={"sample-canvas" }  />
+            <SceneComponent antialias onSceneReady={onSceneReady} className={"sample-canvas" }  />
         </div>
     );
 }

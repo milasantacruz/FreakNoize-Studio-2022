@@ -1,49 +1,80 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "gatsby"
+import ReactPageScroller from 'react-page-scroller';
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import "./myStyles.scss"
+import "./main.scss"
+//import Changetexturescene from '../components/changeTextureScene'
 import Section from "../components/section"
-import Welcome from "../components/welcomeTitle"
-import Galeria from "../components/galeria"
-import ChangeTextureScene from "../components/changeTextureScene"
-import Redes from "../components/redes"
-import Portada from "../components/portada"
-import Contacto from "../components/contacto"
 // import UIAnimation from "../components/UIAnimation"
 
 
-const IndexPage = () => {
+const IndexPage = ({data}) => {
 
-  const[isCurrent, setCurrent] = useState(undefined)
-  
-  useEffect(()=>{
-    console.log(isCurrent)
-  },[isCurrent])
 
+console.log(data)
   return(
-      <Layout >
+    <Layout>
         <Seo title="Home" />
-          <Portada setCurrent={setCurrent} />
+         {/* <Changetexturescene /> */}
+        
+         <ReactPageScroller
+         renderAllPagesOnFirstRender="false"
+         >
           {
-            (()=>{
-              switch(isCurrent){
-                case "home":
-                  return <ChangeTextureScene/>
-                case "contacto":
-                  return <Contacto/>
-                  case "galeria":
-                  return <Galeria/>
-                default:
-                  return <ChangeTextureScene/>
-              }
-            })()
-          }
-          <Redes/>
-      
-     
-      </Layout>
+           data.allStrapiServicio.edges.map((e,i) =>{
+             //console.log(i)
+             var current=false;
+             if(i%2 !== 0){
+               current=false;
+               //console.log(current);
+             }else{
+               current=true;
+               //console.log(current);
+             }
+
+             return(
+               <Section key={e.node.titulo} data={e} prop1={current} />
+             )
+           })
+         } 
+       </ReactPageScroller>
+       </Layout>
   )
 }
 
 export default IndexPage
+
+
+
+ export const query = graphql`
+   {
+     allStrapiServicio {
+       edges {
+         node {
+           id
+           titulo
+           descripcion {
+             data {
+               descripcion
+             }
+           }
+           imagenes {
+             localFile {
+               childImageSharp {
+                 gatsbyImageData(height: 500, width: 500, layout: CONSTRAINED)
+               }
+             }
+           }
+           video {
+             id
+             localFile {
+               publicURL
+             }
+           }
+         }
+       }
+     }
+   }
+ `

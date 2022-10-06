@@ -3082,7 +3082,7 @@ var plugins = [{
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-google-fonts/gatsby-ssr */ "./node_modules/gatsby-plugin-google-fonts/gatsby-ssr.js"),
   options: {
     "plugins": [],
-    "fonts": ["Roboto:100, 300, 500", "Bakbak+One: 400"],
+    "fonts": ["Roboto:100, 300, 500", "Bakbak+One: 400", "Philosopher: 400"],
     "display": "swap"
   }
 }, {
@@ -11460,24 +11460,24 @@ module.exports = withSideEffect;
 /***/ }),
 
 /***/ "react-dom/server":
-/*!***********************************************************************************************!*\
-  !*** external "C:\\Users\\camila\\Documents\\3dprintweb\\node_modules\\react-dom\\server.js" ***!
-  \***********************************************************************************************/
+/*!***********************************************************************************************************!*\
+  !*** external "C:\\Users\\camila\\Documents\\FreakNoize-Studio-2022\\node_modules\\react-dom\\server.js" ***!
+  \***********************************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("C:\\Users\\camila\\Documents\\3dprintweb\\node_modules\\react-dom\\server.js");
+module.exports = require("C:\\Users\\camila\\Documents\\FreakNoize-Studio-2022\\node_modules\\react-dom\\server.js");
 
 /***/ }),
 
 /***/ "react":
-/*!******************************************************************************************!*\
-  !*** external "C:\\Users\\camila\\Documents\\3dprintweb\\node_modules\\react\\index.js" ***!
-  \******************************************************************************************/
+/*!******************************************************************************************************!*\
+  !*** external "C:\\Users\\camila\\Documents\\FreakNoize-Studio-2022\\node_modules\\react\\index.js" ***!
+  \******************************************************************************************************/
 /***/ ((module) => {
 
 "use strict";
-module.exports = require("C:\\Users\\camila\\Documents\\3dprintweb\\node_modules\\react\\index.js");
+module.exports = require("C:\\Users\\camila\\Documents\\FreakNoize-Studio-2022\\node_modules\\react\\index.js");
 
 /***/ }),
 

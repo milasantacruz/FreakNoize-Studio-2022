@@ -4,14 +4,15 @@
  *
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
-import React from 'react'
+import React,{useEffect} from 'react'
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import LandingIndexProvider from "../context/landingIndex"
 import Menu from "./menu2"
 import "./layout.css"
 
 
-const Layout = ({ children }) => {
+const Layout = ({ children, items , elems}) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -21,14 +22,14 @@ const Layout = ({ children }) => {
       }
     }
   `)
-
-
+ useEffect(()=>{
+  //console.log(elems)
+ },[elems])
   return (
-    <>
-        <header> <Menu/> </header>
+    <LandingIndexProvider>
+        <header> <Menu items={items} elems={elems} /> </header>
         <main>{children}</main>
-        
-    </>
+    </LandingIndexProvider>
   )
 }
 

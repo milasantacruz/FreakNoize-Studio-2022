@@ -1,47 +1,70 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from "gatsby"
-import ReactPageScroller from 'react-page-scroller';
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Scroller from "../components/scroller"
+import Banner from "../components/banner.js"
+import LandingIndexProvider from '../context/landingIndex';
+import MediaQuery from 'react-responsive';
 import "./main.scss"
 //import Changetexturescene from '../components/changeTextureScene'
+import Fkr from "../components/fkrScene"
+import MaterialVariant from "../components/material_variant"
 import Section from "../components/section"
 // import UIAnimation from "../components/UIAnimation"
 
 
-const IndexPage = ({data}) => {
+const IndexPage = ({data, location}) => {
+ 
+  // useEffect(()=>{
+  //   data.allStrapiServicio.edges.map((e,i)=>{
+  //     setElems(old=>[...old,e])
+  //   })
+   
+  // },[])
+  //console.log(elems)
 
-
-console.log(data)
   return(
-    <Layout>
-        <Seo title="Home" />
-         {/* <Changetexturescene /> */}
-        
-         <ReactPageScroller
-         renderAllPagesOnFirstRender="false"
-         >
-          {
-           data.allStrapiServicio.edges.map((e,i) =>{
-             //console.log(i)
-             var current=false;
-             if(i%2 !== 0){
-               current=false;
-               //console.log(current);
-             }else{
-               current=true;
-               //console.log(current);
-             }
+    <LandingIndexProvider>
+      <Layout>
+          <Seo title="Home" />
+          {/* <Changetexturescene /> */}
+            {/* <MaterialVariant/> */}
+            <Fkr/>
+          <MediaQuery maxWidth={992}>
+            {
+                data.allStrapiServicio.edges.map((e,i) =>{
+                // console.log(i)
+                  var current=false;
+                  if(i%2 !== 0){
+                    current=false;
+                    //console.log(current);
+                  }else{
+                    current=true;
+                    //console.log(current);
+                  }
 
-             return(
-               <Section key={e.node.titulo} data={e} prop1={current} />
-             )
-           })
-         } 
-       </ReactPageScroller>
-       </Layout>
+                  return(
+                    
+                    <div  key={e.node.titulo} >
+                      <Section id="prueba"  data={e} prop1={current} />
+                    </div>
+                  )
+                })
+              } 
+          </MediaQuery>
+          
+          <MediaQuery minWidth={992} >
+            <Scroller data={data} location={location} />
+          </MediaQuery>
+        </Layout>
+      </LandingIndexProvider>
   )
+  
+
+
+ 
 }
 
 export default IndexPage
@@ -50,7 +73,7 @@ export default IndexPage
 
  export const query = graphql`
    {
-     allStrapiServicio {
+     allStrapiServicio(sort: {fields: strapi_id, order: ASC}){
        edges {
          node {
            id
@@ -73,6 +96,14 @@ export default IndexPage
                publicURL
              }
            }
+           categorias {
+            id
+            nombre  
+            step{
+              id
+            }         
+          }
+
          }
        }
      }

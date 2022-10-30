@@ -1,10 +1,10 @@
 import React from 'react';
 import SceneComponent from "babylonjs-hook";
+import WebXRDefaultExperience from "@babylonjs/core/XR"
 import {HemisphericLight} from '@babylonjs/core/Lights/hemisphericLight'
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
 import {Vector3, Color3,Mesh, EquiRectangularCubeTexture, PhotoDome, Texture, PBRMaterial} from '@babylonjs/core';
 //import "@babylonjs/inspector"
-import Icon360 from "./old/icon360"
 import "@babylonjs/loaders"
 import "@babylonjs/loaders/glTF"
 import "./changetexturescene.scss"
@@ -43,7 +43,6 @@ const Changetexturescene = () => {
             position:"relative",
             height:"100%"
              }} >
-            <Icon360/>
             <SceneComponent antialias onSceneReady={onSceneReady} className={"sample-canvas" }  />
         </div>
     );

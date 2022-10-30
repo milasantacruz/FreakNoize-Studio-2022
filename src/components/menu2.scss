@@ -1,0 +1,104 @@
+$purple1 : #3F1973;
+$purple2 : #1C0C40;
+$purple3 : #110826;
+$blue1 : #1811D9;
+$blue2 : #120DA6;
+
+
+
+.menu-container{
+
+.navbar{
+    background-color:#0c0c0c!important;
+    .navbar-brand{
+        .navbar-item{
+            h1{
+                color:$blue1;
+                font-size: 2em;
+            }
+        }
+    }
+
+    .nested.dropdown {
+        &:hover > .dropdown-menu {
+          display: block;
+        }
+        .dropdown-menu {
+        top: -11px;
+          margin-left: -122%;
+
+          .dropdown-content{
+            background-color:#0c0c0c;
+
+            
+        .dropdown-item:hover{
+            background-color:$blue1;
+        }
+          }
+        }
+
+        .dropdown-trigger {
+          button::after {
+            content: '⦠'
+          }
+          button {
+            padding: 0px 0px;
+            border: 0px;
+            font-size: 14px;
+            font-weight: 400;
+            height: 2em;
+          }
+        }
+      }
+
+      
+    .navbar-menu{
+        
+        .navbar-end{
+            
+            .navbar-item{
+                a.home{
+                    color:$blue1!important;
+                }
+                .navbar-link{
+                    background-color: #0c0c0c;
+                    color:$blue1!important;
+                }
+
+                .navbar-link::after{
+                    border-color:$blue1;
+                }
+
+                .navbar-dropdown{
+                    background-color: #0c0c0c;
+                }
+            }
+            .navbar-item:hover{
+                cursor:pointer;
+                transition: .5s;
+                background-color:$blue1;
+                h3{
+                    color:black;
+                }
+            }
+            h3{
+                color:$blue1;
+            }
+        }
+    }
+}
+
+.bread{
+    background-color: #0c0c0c;
+    border-top: solid$blue1 1px;
+    border-bottom: solid $blue1 1px;
+
+    .breadcrumb.has-arrow-separator li + li::before{
+        padding-right: 6px;
+    }
+}
+
+.modal .modal-card .modal-card-body{
+    background-color:rgba(0, 0, 0, 0);
+}
+}

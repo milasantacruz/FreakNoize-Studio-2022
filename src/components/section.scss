@@ -1,20 +1,37 @@
+$purple1 : #3F1973;
+$purple2 : #1C0C40;
+$purple3 : #110826;
+$blue1 : #1811D9;
+$blue2 : #120DA6;
+
+
+
 .section100{
-    background-color: rgb(20, 20, 20);
+    position:relative;
+    background-color: #0c0c0c;
     height:100vh;
 
     .columns {
         height: 100%;
       }
 
-
-
-
     .column {
         display: flex;
         place-items: center;
         justify-content: center;
+
+        .hue{
+            filter: hue-rotate(148deg);
+          }
     }
 
+   
+}
 
+@media(max-width: 992px){
+    .section100{
+        height:auto;
+    }
 
 }
+

@@ -1,9 +1,13 @@
 import React from 'react';
 import "./+info.scss"
-const Info = () => {
+const Info = ({setCategorias}) => {
+
+    function handleClick(){
+        setCategorias(true)
+    }
     return (
         <div className="masInfo">
-            <button className="button">+info</button>
+            <button onClick={handleClick} className="button">+info</button>
         </div>
     );
 }

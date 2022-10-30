@@ -1,0 +1,33 @@
+
+$purple1 : #3F1973;
+$purple2 : #1C0C40;
+$purple3 : #110826;
+$blue1 : #1811D9;
+$blue2 : #120DA6;
+
+
+
+.myModal {
+
+    position: absolute;
+    top: 0;
+    background-color: black;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 1em;
+
+    .casilla{
+        padding: 0px 25px;
+        cursor:pointer;
+
+        .liArrow{
+            padding: 0.9em 0.1em;
+        }
+      }
+
+    .casilla:hover{
+        background-color: $blue1;
+      }
+
+}

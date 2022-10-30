@@ -1,1 +1,31 @@
 @import "~bulma/bulma.sass";
+
+$purple1 : #3F1973;
+$purple2 : #1C0C40;
+$purple3 : #110826;
+$blue1 : #1811D9;
+$blue2 : #120DA6;
+
+
+
+.banner{
+    background-color:#0c0c0c;
+    height: 100vh;
+    overflow: hidden;
+}
+
+main{
+    background-color:#0c0c0c;
+}
+
+h1.title{
+    color:$blue1!important;
+}
+
+p{
+    color: white;
+}
+
+a{
+    color:white!important;
+}

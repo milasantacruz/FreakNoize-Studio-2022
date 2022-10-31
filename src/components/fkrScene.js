@@ -5,41 +5,71 @@ import {HemisphericLight,DirectionalLight} from '@babylonjs/core/Lights'
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
 import {Vector3,Color3,SceneLoader,MeshBuilder} from '@babylonjs/core';
 import "./changetexturescene.scss"
-import "@babylonjs/inspector"
+//import "@babylonjs/inspector"
 import "@babylonjs/loaders";
 import '@babylonjs/loaders/glTF';
+import { DefaultRenderingPipeline,StandardMaterial,CubeTexture,Texture } from '@babylonjs/core';
 const FkrScene = () => {
     const onSceneReady = async scene =>{
        
-        scene.debugLayer.show();
-        var camera = new ArcRotateCamera("Camera", 0, 0, 10, new Vector3(0, 0, 0), scene);
+        // scene.debugLayer.show();
+        var camera = new ArcRotateCamera("Camera", 0, 0, 0, new Vector3(0, 0, 0), scene);
 
         // Positions the camera overwriting alpha, beta, radius
-        camera.setPosition(new Vector3(0, 0, 20));
+        camera.setPosition(new Vector3(45, 28, 80));
         //CANVAS
          const canvas = scene.getEngine().getRenderingCanvas();
         //ATTACH CAMERAS
          
         camera.attachControl(canvas, true);
-        var light = new HemisphericLight("light", new Vector3(0,1,0), scene);
-        light.intensity = 0.5;
+       
         scene.useRightHandedSystem = true
-
+        //scene.clearColor = new Color3(0, 0, 0);
         //Light direction is directly down
-        var light2 = new DirectionalLight("DirectionalLight", new Vector3(1, -1, 0), scene);
+        var light = new HemisphericLight("hemiLight", new Vector3(-1, 1, 0), scene);
+	    light.diffuse = new Color3(0, 0, 1);
+	
+        var light2 = new DirectionalLight("DirectionalLight", new Vector3(0, -1, 0), scene);
         light2.diffuse = new Color3(1, 0, 0);
-        light2.specular = new Color3(0, 1, 0);
-        light2.intensity = 5;
-        light2.position = new Vector3(0,11,0);
+        light2.specular = new Color3(1, 0, 0);
+        light2.intensity = 8;
+        light2.position = new Vector3(0,1,0);
 
+        //Light direction is directly top
+        var light3 = new DirectionalLight("DirectionalLight", new Vector3(0, 1, 0), scene);
+        light3.diffuse = new Color3(0, 0, 1);
+        light3.specular = new Color3(1, 0, 0);
+        light3.intensity = 8;
+        light3.position = new Vector3(0,1,0);
+
+       
         var model = await SceneLoader.ImportMeshAsync("", "/static/5c1ecb25a02edcfe8c02387526017cf6/", "FreakNoizeStudio.gltf", scene);
         console.log(model.meshes[1])
 
-       // var sphere = MeshBuilder.CreateSphere("sphere", {}, scene);	
-      
+        var skybox = MeshBuilder.CreateBox("skyBox", {size:1000}, scene);
+        var skyboxMaterial = new StandardMaterial("skyBox", scene);
+        skyboxMaterial.backFaceCulling = false;
+        skybox.material = skyboxMaterial;
+              
+
+        var pipe = new DefaultRenderingPipeline(
+            "defaultPipeline",
+            true,
+            scene,
+            [camera]
+        );
+        pipe.bloomEnabled = true;
+        pipe.bloomThreshold = 0.1;
+        pipe.bloomWeight = 0.3;
+        pipe.bloomKernel = 64;
+        pipe.bloomScale = 0.5;
+
     }
     return (
-        <SceneComponent onSceneReady={onSceneReady} className={"sample-canvas"} />
+        <>
+            <h1 className="continue">Esc to continue</h1>
+            <SceneComponent onSceneReady={onSceneReady} className={"sample-canvas"} />
+        </>
     );
 }
 

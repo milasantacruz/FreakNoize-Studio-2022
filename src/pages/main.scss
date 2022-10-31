@@ -6,7 +6,14 @@ $purple3 : #110826;
 $blue1 : #1811D9;
 $blue2 : #120DA6;
 
+.loaderWrapper {
+    height: 100vh;
+    overflow: hidden;
+  }
 
+.is-gone{
+    display:none;
+  }
 
 .banner{
     background-color:#0c0c0c;

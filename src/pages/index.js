@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useCallback} from 'react'
 import { Link } from "gatsby"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
@@ -8,6 +8,7 @@ import Banner from "../components/banner.js"
 import LandingIndexProvider from '../context/landingIndex';
 import MediaQuery from 'react-responsive';
 import "./main.scss"
+import { useSpring, animated } from 'react-spring'
 //import Changetexturescene from '../components/changeTextureScene'
 import Fkr from "../components/fkrScene"
 import MaterialVariant from "../components/material_variant"
@@ -25,13 +26,38 @@ const IndexPage = ({data, location}) => {
   // },[])
   //console.log(elems)
 
+  var [click, setClick] = useState(false)
+
+  const escFunction = useCallback((event) => {
+    if (event.key === "Escape") {
+        console.log("esc")
+        setClick(true)
+    }
+}, []);
+
+  useEffect(() => {
+
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => {
+
+        document.removeEventListener("keydown", escFunction, false);
+    }
+}, [])
+
+const enter = useSpring({ to: { opacity: 1, x:"0px"}, from: { opacity: 0, x:"-500px"} })
+const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"0px"} })
+
   return(
     <LandingIndexProvider>
-      <Layout>
+      <div className="loaderWrapper">
+        {
+          click?
+          <Layout>
           <Seo title="Home" />
           {/* <Changetexturescene /> */}
             {/* <MaterialVariant/> */}
-            <Fkr/>
+            
           <MediaQuery maxWidth={992}>
             {
                 data.allStrapiServicio.edges.map((e,i) =>{
@@ -59,6 +85,11 @@ const IndexPage = ({data, location}) => {
             <Scroller data={data} location={location} />
           </MediaQuery>
         </Layout>
+          :
+          <Fkr/>
+        }
+       
+      </div>
       </LandingIndexProvider>
   )
   

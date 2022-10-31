@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Form from "./contacto"
+import { StaticImage } from "gatsby-plugin-image"
 import {Link} from "gatsby"
 import Modal from "../components/myModal"
 import { UseIndexContext } from "../context/landingIndex"
@@ -52,10 +53,15 @@ const Menu2 = ({ items }) => {
         <div className="menu-container">
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <a className="navbar-item" href="/">
-                        <h1>FreakStudio</h1>
-                    </a>
-
+                  <StaticImage
+                  src="../images/lofo-fkr.png"
+                  placeholder="tracedSVG"
+                  className="menuImgWrapper"
+                  width="300px"
+                  height="100px"
+                  
+                  
+                />
                     <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>

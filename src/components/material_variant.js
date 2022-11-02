@@ -7,7 +7,6 @@ import {Vector3, UniversalCamera, Color3,Mesh,Tools,EquiRectangularCubeTexture, 
 import "./changetexturescene.scss"
 import "@babylonjs/loaders";
 import '@babylonjs/loaders/glTF';
-import {KHR_materials_variants} from '@babylonjs/loaders/glTf/2.0/Extensions'
 const MaterialVariant = () => {
 
     const onSceneReady = async scene =>{
@@ -27,8 +26,6 @@ const MaterialVariant = () => {
         var model = await SceneLoader.ImportMeshAsync("", "static/f3f1365a96dd5f1228d915309730b55b/", "material_variant.gltf", scene);
         console.log(model.meshes[1])
         model.meshes[1].position = new Vector3(0,0,0)
-        var bVariant = KHR_materials_variants.GetAvailableVariants(model.meshes[2])
-        console.log(bVariant)
        // var box = new MeshBuilder.CreateBox("box", {size:"2"}, scene)
        // box.position = new Vector3.Zero()
 

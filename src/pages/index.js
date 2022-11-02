@@ -25,6 +25,20 @@ const IndexPage = ({data, location}) => {
    
   // },[])
   //console.log(elems)
+  var[loc, setLoc] = useState(0)
+  useState(()=>{
+
+    if(location.state){
+      
+      setLoc(location.state.am);
+  
+     }
+     console.log(location, loc)
+  },[location])
+
+  
+  //CATEGORIAS
+  var[categorias, setCategorias] = useState(false)
 
   var [click, setClick] = useState(false)
 
@@ -74,7 +88,7 @@ const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"
                   return(
                     
                     <div  key={e.node.titulo} >
-                      <Section id="prueba"  data={e} prop1={current} />
+                      <Section id="prueba"  data={e} prop1={current} categorias={categorias} setCategorias={setCategorias} />
                     </div>
                   )
                 })
@@ -82,7 +96,7 @@ const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"
           </MediaQuery>
           
           <MediaQuery minWidth={992} >
-            <Scroller data={data} location={location} />
+            <Scroller data={data} location={loc} categorias={categorias} setCategorias={setCategorias}/>
           </MediaQuery>
         </Layout>
           :

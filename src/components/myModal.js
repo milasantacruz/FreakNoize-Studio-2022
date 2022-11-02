@@ -18,6 +18,7 @@ const MyModal = ({categorias, setCategorias}) => {
         <ul>
             {
                 categorias.map((e,i)=>{
+                   // console.log(`/${categorias[i].nombre.split(' ').join('_').toLowerCase()}`)
                     return(
                         <animated.div className="casilla" key={i+e} style={categorias?inL:inR}>
                             <Link to={`/${categorias[i].nombre.split(' ').join('_').toLowerCase()}`}>

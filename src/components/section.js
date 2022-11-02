@@ -4,17 +4,11 @@ import MediaInfo from "./mediaInfo"
 import Modal from './myModal'
 import { useSpring, animated } from 'react-spring'
 import {getImage, GatsbyImage} from "gatsby-plugin-image"
-const Section = ({data, prop1}) => {
+const Section = ({data, prop1, categorias, setCategorias}) => {
 
     //console.log(data.node.categorias)
     var img = getImage(data.node.imagenes[0].localFile)
    
-    //CATEGORIAS
-    var[categorias, setCategorias] = useState(false)
-    useEffect(()=>{
-       // console.log(categorias)
-    },[categorias])
-
 
     //INTERSECCION
    // console.log(data.node.categorias)
@@ -52,10 +46,6 @@ const Section = ({data, prop1}) => {
          
     },[])
 
-    useEffect(()=>{
-        //console.log(intersec)
-    },[intersec])
-    
     if(prop1){
         return (
             <div className="section100 section">

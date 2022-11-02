@@ -43,7 +43,7 @@ const FkrScene = () => {
         light3.position = new Vector3(0,1,0);
 
        
-        var model = await SceneLoader.ImportMeshAsync("", "/static/5c1ecb25a02edcfe8c02387526017cf6/", "FreakNoizeStudio.gltf", scene);
+        var model = await SceneLoader.ImportMeshAsync("", "/static/58e5fc3daaddb25ec457ac4c3bff6117/", "FreakNoizeStudio.gltf", scene);
         console.log(model.meshes[1])
 
         var skybox = MeshBuilder.CreateBox("skyBox", {size:1000}, scene);

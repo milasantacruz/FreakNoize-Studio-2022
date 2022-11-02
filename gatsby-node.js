@@ -58,6 +58,7 @@ exports.createPages = async({ graphql,actions, reporter })=>{
   result.data.steps.edges.forEach(({node}) =>{
     const pathId = node.id
     const path =`/${node.titulo.split(' ').join('_').toLowerCase()}/`
+    console.log(path)
     createPage({
         path:path,
         component:stepsTemplate,

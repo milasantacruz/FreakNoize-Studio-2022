@@ -73,7 +73,7 @@ const Contacto = () => {
                             <div className="control has-icons-left" >
                                 <input 
                                 style={{
-                                    borderColor: touched&&errors.name? "red":"greenyellow"
+                                    borderColor: touched&&errors.name? "red":"#1811D9"
                                 }}
                                 name="from_name"
                                 id="from_name"
@@ -84,7 +84,7 @@ const Contacto = () => {
                                 value={values.name}
                                 />
                                 <span className="icon is-small is-left">
-                                    <FontAwesomeIcon color={"greenyellow"} icon={faUser}/>
+                                    <FontAwesomeIcon color={"#1C0C40"} icon={faUser}/>
                                 </span>
                             </div>
                             {touched.name && errors.name?
@@ -99,7 +99,7 @@ const Contacto = () => {
                             <div className="control has-icons-left has-icons-right" >
                                 <input 
                                 style={{
-                                    borderColor: touched&&errors.email? "red":"greenyellow"
+                                    borderColor: touched&&errors.email? "red":"#1811D9"
                                 }}
                                 name="reply_to"
                                 id="reply_to"
@@ -110,14 +110,14 @@ const Contacto = () => {
                                 value={values.email}
                                 />
                                 <span className="icon is-small is-left">
-                                    <FontAwesomeIcon color={"greenyellow"} icon={faEnvelope}/>
+                                    <FontAwesomeIcon color={"#1C0C40"} icon={faEnvelope}/>
                                 </span>
                                 {touched && errors.email?
                                 <span className="icon is-small is-right">
                                     <FontAwesomeIcon color={"red"}  icon={faCircleExclamation}/>
                                 </span>:
                                 <span className="icon is-small is-right">
-                                    <FontAwesomeIcon  color={"greenyellow"} icon={faCheck}/>
+                                    <FontAwesomeIcon  color={"#1811D9"} icon={faCheck}/>
                                 </span>
                                 }
                             </div>
@@ -134,7 +134,7 @@ const Contacto = () => {
                                 <textarea 
                                 style={{
                                     height:"100%",
-                                    borderColor: touched&&errors.message? "red":"greenyellow"
+                                    borderColor: touched&&errors.message? "red":"#1811D9"
                                 }}
                                 ref={elem =>{txtArea.current = elem}}
                                 name="message"

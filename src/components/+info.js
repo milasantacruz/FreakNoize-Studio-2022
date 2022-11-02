@@ -1,7 +1,6 @@
 import React from 'react';
 import "./+info.scss"
 const Info = ({setCategorias}) => {
-
     function handleClick(){
         setCategorias(true)
     }

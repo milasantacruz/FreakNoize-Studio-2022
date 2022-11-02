@@ -3,25 +3,21 @@ import ReactPageScroller from 'react-page-scroller';
 import { UseIndexContext } from '../context/landingIndex';
 import Section from "../components/section"
 
-const Scroller = ({data, location}) => {
+const Scroller = ({data, loc, categorias, setCategorias}) => {
 
   var {index, setIndex} = UseIndexContext();
 
     useState(()=>{
-
-      if(location.state){
-        var a = location.state.am;
-         setIndex(a);
-    
-       }
-
-    },[location])
+      setIndex(loc)
+    },[loc])
 
     return (
         <ReactPageScroller
             //pageOnChange={onCh}
             customPageNumber={index}
             renderAllPagesOnFirstRender={true}
+            blockScrollDown={categorias}
+            blockScrollUp={categorias}
             >
               {
               data.allStrapiServicio.edges.map((e,i) =>{
@@ -38,7 +34,7 @@ const Scroller = ({data, location}) => {
                 return(
                   
                   <div key={e.node.titulo} >
-                    <Section data={e} prop1={current} />
+                    <Section data={e} prop1={current} categorias={categorias} setCategorias={setCategorias}/>
                   </div>
                 )
               })

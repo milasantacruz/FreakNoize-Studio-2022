@@ -23,8 +23,8 @@ const Layout = ({ children, items , elems}) => {
     }
   `)
  useEffect(()=>{
-  //console.log(elems)
- },[elems])
+  console.log(items)
+ },[items])
   return (
     <LandingIndexProvider>
         <header> <Menu items={items} elems={elems} /> </header>

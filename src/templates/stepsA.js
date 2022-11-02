@@ -16,14 +16,16 @@ const StepsA = ({pageContext}) => {
    
     useEffect(()=>{
         step.paso.map((e, i)=>{
-            var curr = e.titulo.split(' ').join('_').toLowerCase()
+            var curr = e.titulo.split(' ').join('_').toLowerCase();
+            console.log(curr)
            setItems(items => [...items, curr])
+           console.log(items)
         })
 
-        //console.log(items)
     },[])
 
     useEffect(()=>{
+        console.log(items)
     },[items])
 
 
@@ -43,6 +45,7 @@ const StepsA = ({pageContext}) => {
                         <Reactmarkdown className="intro" children={step.introduccion.data.introduccion} />
                     </div>
                     {
+                        step.paso?
                         step.paso.map((e, i)=>{
                             var curr = e.titulo.split(' ').join('_').toLowerCase()
                             console.log(curr)
@@ -54,6 +57,8 @@ const StepsA = ({pageContext}) => {
                                 </div>
                             )
                         })
+                        :
+                        <div></div>
                     }
                 </div>
                 </div>

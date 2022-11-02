@@ -4,11 +4,10 @@ import Form from "./contacto"
 import { StaticImage } from "gatsby-plugin-image"
 import {Link} from "gatsby"
 import Modal from "../components/myModal"
-import { UseIndexContext } from "../context/landingIndex"
 import "./menu2.scss"
+import { UseIndexContext } from '../context/landingIndex';
 const Menu2 = ({ items }) => {
 
-    var { index, setIndex } = UseIndexContext()
 
     var [click, setClick] = useState(false)
 
@@ -19,8 +18,11 @@ const Menu2 = ({ items }) => {
         }
     }, []);
 
-   
+   useState(()=>{
+    console.log(items)
+   },[items])
     useEffect(() => {
+       
 
         document.addEventListener("keydown", escFunction, false);
 
@@ -28,6 +30,7 @@ const Menu2 = ({ items }) => {
 
             document.removeEventListener("keydown", escFunction, false);
         }
+     
     }, [])
 
     function handleContacto() {
@@ -39,29 +42,24 @@ const Menu2 = ({ items }) => {
 
     }
 
-    function handleIndex(e) {
-        console.log("sdf")
+    var { index, setIndex } = UseIndexContext();
+    function handleIndex(e){
         setIndex(e)
-
     }
-
-    useState(()=>{
-        console.log(index)
-    },[index])
-
     return (
         <div className="menu-container">
             <nav className="navbar" role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                  <StaticImage
-                  src="../images/lofo-fkr.png"
-                  placeholder="tracedSVG"
-                  className="menuImgWrapper"
-                  width="300px"
-                  height="100px"
-                  
-                  
-                />
+                <Link to="/" >
+                    <StaticImage
+                    alt="logo-freaknoize"
+                    className="logo"
+                    src="../images/lofo-fkr-min.png"
+                    placeholder="tracedSVG"
+                    imgClassName="menuImgWrapper"
+                    width={180}
+                    />
+                </Link>
                     <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
@@ -104,10 +102,10 @@ const Menu2 = ({ items }) => {
                                             </div>
                                         </div> */}
                                     {/* ///////////// */}
-                                    <Link to="/" state={{am:0}} onClick={() => handleIndex(0)} className="navbar-item">Diseño3D</Link>
-                                    <Link to="/" state={{am:1}} onClick={() => handleIndex(1)} className="navbar-item">AR/VR</Link>
-                                    <Link to="/" state={{am:2}} onClick={() => handleIndex(2)} className="navbar-item">Web</Link>
-                                    <Link to="/" state={{am:3}} onClick={() => handleIndex(3)} className="navbar-item">Mapping</Link>
+                                    <Link to="/" state={{am:0}} onClick={()=>handleIndex(0)} className="navbar-item">Diseño3D</Link>
+                                    <Link to="/" state={{am:1}} onClick={()=>handleIndex(1)} className="navbar-item">AR/VR</Link>
+                                    <Link to="/" state={{am:2}} onClick={()=>handleIndex(2)} className="navbar-item">Web</Link>
+                                    <Link to="/" state={{am:3}} onClick={()=>handleIndex(3)} className="navbar-item">Mapping</Link>
                                 </div>
                             </div>
                         <div onClick={handleContacto} className="navbar-item">
@@ -131,10 +129,10 @@ const Menu2 = ({ items }) => {
                                                     return chr.toUpperCase();
                                                 });
                                             }
-                                            var currentLink = camelSentence(e);
-                                            console.log(currentLink)
+                                            var currentLink = e.replaceAll('_', " ");
+                                            console.log(e, currentLink)
                                             return (
-                                                <li className="p-1" ><AnchorLink href={`/${e}`} >{currentLink}</AnchorLink></li>
+                                                <li key={e+i} className="p-1" ><AnchorLink href={`/${e}`} >{currentLink}</AnchorLink></li>
                                             )
                                         })
                                         :

@@ -9,13 +9,25 @@ $blue2 : #120DA6;
 .menu-container{
 
 .navbar{
+    position:fixed;
+    width:100%;
     background-color:#0c0c0c!important;
+    padding: 1em 1em 0em 1em;
+    z-index: 8000;
     .navbar-brand{
         .navbar-item{
             h1{
                 color:$blue1;
                 font-size: 2em;
             }
+        }
+        .logo{
+           max-height: 60px;
+        }
+
+        .menuImgWrapper{
+           // object-fit: contain!important;
+           padding: 8px;
         }
     }
 
@@ -92,6 +104,12 @@ $blue2 : #120DA6;
     background-color: #0c0c0c;
     border-top: solid$blue1 1px;
     border-bottom: solid $blue1 1px;
+
+    position: absolute;
+    top: 4.03em;
+    z-index: 5000;
+    width: 100%;
+    position: fixed;
 
     .breadcrumb.has-arrow-separator li + li::before{
         padding-right: 6px;

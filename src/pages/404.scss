@@ -1,0 +1,41 @@
+.errorContenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100vw;
+    height:100vh;
+    background-color:#ffffff;
+    overflow: hidden;
+}
+
+.errorMessage{
+    width: 30%;
+    text-align: center;
+    p{
+        padding-top:1em;
+        color:black;
+    }
+}
+
+
+.volver-cont{
+    display: flex;
+    margin: 1em;
+    text-align: center;
+    justify-content: center;
+.volver{
+    background-color: #242424;
+    display: flex;
+    margin: 1em;
+    text-align: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 1em;
+    color:#ffffff;
+
+    h1 {
+        margin-left: 1em;
+      }
+  }
+}
+

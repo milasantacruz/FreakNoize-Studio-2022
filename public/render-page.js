@@ -2982,6 +2982,12 @@ var plugins = [{
     "include_favicon": true,
     "cacheDigest": "4a9773549091c227cd2eb82ccd9c5e3a"
   }
+}, {
+  name: 'default-site-plugin',
+  plugin: __webpack_require__(/*! ./gatsby-ssr */ "./gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
 }];
 /* global plugins */
 // During bootstrap, we write requires at top of this file which looks like:
@@ -4315,6 +4321,49 @@ function stripPrefix(str, prefix = ``) {
   }
   return str;
 }
+
+/***/ }),
+
+/***/ "./gatsby-ssr.js":
+/*!***********************!*\
+  !*** ./gatsby-ssr.js ***!
+  \***********************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "onPreRenderHTML": () => (/* binding */ onPreRenderHTML),
+/* harmony export */   "onRenderBody": () => (/* binding */ onRenderBody)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/**
+ * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
+ *
+ * See: https://www.gatsbyjs.com/docs/ssr-apis/
+ */
+
+// You can delete this file if you're not using it
+
+// import Loader from "./src/components/fkrScene"
+const onRenderBody = ({
+  setPreBodyComponents,
+  setBodyAttributes
+}) => {
+  setPreBodyComponents([
+    //   <Loader key={"loader"+123} />
+  ]);
+  setBodyAttributes({
+    className: "preloader_active"
+  });
+};
+const onPreRenderHTML = ({
+  getHeadComponents
+}) => {
+  //const headComponents = getHeadComponents()
+  //console.log("headComps: "+headComponents)
+};
 
 /***/ }),
 

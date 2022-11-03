@@ -2,8 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 import Form from "./contacto"
 import { StaticImage } from "gatsby-plugin-image"
-import {Link} from "gatsby"
-import Modal from "../components/myModal"
+import {Link} from "gatsby" 
 import "./menu2.scss"
 import { UseIndexContext } from '../context/landingIndex';
 const Menu2 = ({ items }) => {
@@ -18,9 +17,6 @@ const Menu2 = ({ items }) => {
         }
     }, []);
 
-   useState(()=>{
-    console.log(items)
-   },[items])
     useEffect(() => {
        
 
@@ -75,33 +71,6 @@ const Menu2 = ({ items }) => {
                                     Servicios
                                 </a>
                                 <div className="navbar-dropdown">
-                                    {/* <div className="nested navbar-item dropdown">
-                                            <div class="dropdown-trigger">
-                                                <a aria-haspopup="true" aria-controls="dropdown-menu">
-                                                    <span>Dropdown button</span>
-                                                    <span className="icon is-small">
-                                                        <i className="fas fa-angle-down" aria-hidden="true"></i>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                            <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                                                <div class="dropdown-content">
-                                                    <a href="#" className="dropdown-item">
-                                                        Dropdown item
-                                                    </a>
-                                                    <a className="dropdown-item">
-                                                        Other dropdown item
-                                                    </a>
-                                                    <a href="#" class="dropdown-item">
-                                                        Active dropdown item
-                                                    </a>
-                                                    <a href="#" class="dropdown-item">
-                                                        Other dropdown item
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div> */}
-                                    {/* ///////////// */}
                                     <Link to="/" state={{am:0}} onClick={()=>handleIndex(0)} className="navbar-item">Diseño3D</Link>
                                     <Link to="/" state={{am:1}} onClick={()=>handleIndex(1)} className="navbar-item">AR/VR</Link>
                                     <Link to="/" state={{am:2}} onClick={()=>handleIndex(2)} className="navbar-item">Web</Link>

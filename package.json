@@ -15,6 +15,7 @@
     "babylonjs-hook": "0.1.0-beta.0",
     "babylonjs-loaders": "^5.30.0",
     "bulma": "^0.9.3",
+    "deepmerge": "^4.2.2",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",
     "gatsby": "^3.6.2",
@@ -34,6 +35,7 @@
     "lottie-react": "^2.3.1",
     "lottie-web": "^5.9.5",
     "npm": "^8.19.2",
+    "path-browserify": "^1.0.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
@@ -48,6 +50,7 @@
     "react-spring": "^9.5.4",
     "sass": "^1.35.1",
     "use-formik": "0.0.1",
+    "webpack-merge": "^5.8.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {

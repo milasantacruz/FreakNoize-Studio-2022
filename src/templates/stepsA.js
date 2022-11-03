@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import {graphql} from "gatsby"
 import Layout from "../components/layout"
 import Reactmarkdown from "react-markdown"
 import LandingIndexProvider from "../context/landingIndex"
@@ -6,29 +7,28 @@ import LandingIndexProvider from "../context/landingIndex"
 import {GatsbyImage, getImage} from "gatsby-plugin-image"
 import "./stepsA.scss"
 
-const StepsA = ({pageContext}) => {
+const StepsA = ({data}) => {
 
-    const {step} = pageContext
-    console.log(step)
+    const step = data.strapiStep
+    //console.log(step)
     var image = getImage(step.imagen[0].localFile);
     var[items, setItems] = useState([step.titulo.split(' ').join('_').toLowerCase()])
 
    
     useEffect(()=>{
+        console.log(step.paso)
+       if(step.paso.length>0){
         step.paso.map((e, i)=>{
             var curr = e.titulo.split(' ').join('_').toLowerCase();
-            console.log(curr)
+           console.log(curr)
            setItems(items => [...items, curr])
-           console.log(items)
+           //console.log(items)
         })
+       }
 
     },[])
 
-    useEffect(()=>{
-        console.log(items)
-    },[items])
-
-
+  
     return (
             <LandingIndexProvider>
                 <Layout  items={items}>
@@ -45,10 +45,10 @@ const StepsA = ({pageContext}) => {
                         <Reactmarkdown className="intro" children={step.introduccion.data.introduccion} />
                     </div>
                     {
-                        step.paso?
+                        step.paso.length>0?
                         step.paso.map((e, i)=>{
                             var curr = e.titulo.split(' ').join('_').toLowerCase()
-                            console.log(curr)
+                            //console.log(curr)
                             return(
                                 <div id={curr} key={e.titulo+i} className="content">
                                     <h1 className="title">{e.titulo}</h1>
@@ -66,5 +66,41 @@ const StepsA = ({pageContext}) => {
             </LandingIndexProvider>
     );
 }
+
+
+
+export const query = graphql`
+    query Step($stepId: String){
+        strapiStep(id:{eq:$stepId}){
+            id
+          titulo
+          introduccion {
+            data {
+              introduccion
+            }
+          }
+          imagen {
+            localFile {
+              childImageSharp {
+                gatsbyImageData(
+                  layout: CONSTRAINED, 
+                  placeholder: DOMINANT_COLOR
+                  transformOptions: {fit: FILL}
+                  )
+              }
+            }
+          }
+          paso {
+            titulo
+            contenido {
+              data {
+                contenido
+              }
+            }
+          }
+
+        }
+    }
+`
 
 export default StepsA;

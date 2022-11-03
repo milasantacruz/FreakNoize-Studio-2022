@@ -29,11 +29,11 @@ const IndexPage = ({data, location}) => {
   useState(()=>{
 
     if(location.state){
-      
+      console.log(location.state.am, loc)
       setLoc(location.state.am);
-  
+      console.log(location.state.am, loc)
      }
-     console.log(location, loc)
+     
   },[location])
 
   

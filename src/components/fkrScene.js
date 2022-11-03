@@ -3,17 +3,18 @@ import SceneComponent from "babylonjs-hook"
 import WebXRDefaultExperience from "@babylonjs/core/"
 import {HemisphericLight,DirectionalLight} from '@babylonjs/core/Lights'
 import { ArcRotateCamera } from '@babylonjs/core/Cameras/arcRotateCamera';
-import {Vector3,Color3,SceneLoader,MeshBuilder} from '@babylonjs/core';
+import {Vector3,Color3,SceneLoader,MeshBuilder, Animation, Quaternion} from '@babylonjs/core';
 import "./changetexturescene.scss"
 //import "@babylonjs/inspector"
 import "@babylonjs/loaders";
 import '@babylonjs/loaders/glTF';
 import { DefaultRenderingPipeline,StandardMaterial,CubeTexture,Texture } from '@babylonjs/core';
 const FkrScene = () => {
+    var camera;
     const onSceneReady = async scene =>{
        
         // scene.debugLayer.show();
-        var camera = new ArcRotateCamera("Camera", 0, 0, 0, new Vector3(0, 0, 0), scene);
+        camera = new ArcRotateCamera("Camera", 0, 0, 0, new Vector3(0, 0, 0), scene);
 
         // Positions the camera overwriting alpha, beta, radius
         camera.setPosition(new Vector3(45, 28, 80));
@@ -64,11 +65,43 @@ const FkrScene = () => {
         pipe.bloomKernel = 64;
         pipe.bloomScale = 0.5;
 
+
+        //ANIMATIONCAMERA
+        camera.rotationQuaternion = new Quaternion();
+        var animationCamera = (x,y,z) => {
+            let framerate = 20;
+
+            let animateRotation = new Animation("animRotation","rotationQuaternion",framerate,Animation.ANIMATIONTYPE_QUATERNION,Animation.ANIMATIONLOOPMODE_CONSTANT);
+            let keyframeRotation = [];
+            keyframeRotation.push({frame:0,value:camera.rotationQuaternion.clone()});
+            keyframeRotation.push({frame:20,value:Quaternion.FromEulerAngles(x, y, z)});
+            animateRotation.setKeys(keyframeRotation);
+    
+            camera.animations = [animateRotation];
+            scene.beginAnimation(camera,0,20,false,2);
+            
+        }
+
     }
+
+    const onRender = scene => {
+       // camera.rotationQuaternion = new Quaternion();
+        if (camera !== undefined) {
+            var deltaTimeInMillis = scene.getEngine().getDeltaTime();
+        
+            const rpm = 0.5;
+            //camera.rotation.y += ((rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000));
+            var m = ((rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000))
+            camera.alpha += m
+          }
+          console.log(camera.beta)
+
+    }
+
     return (
         <>
             <h1 className="continue">Esc to continue</h1>
-            <SceneComponent onSceneReady={onSceneReady} className={"sample-canvas"} />
+            <SceneComponent onRender={onRender} onSceneReady={onSceneReady} className={"sample-canvas"} />
         </>
     );
 }

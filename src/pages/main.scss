@@ -37,3 +37,12 @@ p{
 a{
     color:white!important;
 }
+
+
+@media(max-width: 992px){
+    .loaderWrapper{
+        height: auto;
+        overflow: scroll;
+    }
+
+}

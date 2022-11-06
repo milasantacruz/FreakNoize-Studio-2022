@@ -33,9 +33,9 @@ const Menu2 = ({ items }) => {
         setClick(true)
     }
 
-    function handleClose() {
-        setClick(false)
-
+    var [burger, setburger] = useState(false)
+    function handleBurger(){
+        setburger(!burger)
     }
 
     var { index, setIndex } = UseIndexContext();
@@ -56,14 +56,14 @@ const Menu2 = ({ items }) => {
                     width={180}
                     />
                 </Link>
-                    <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                    <a onClick={handleBurger} role="button" className={burger?"navbar-burger is-active":"navbar-burger"} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </a>
                 </div>
 
-                <div className="navbar-menu">
+                <div className={burger?"navbar-menu is-active":"navbar-menu"}>
                     <div className="navbar-start"></div>
                     <div className="navbar-end">
                             <div className="navbar-item has-dropdown is-hoverable">
@@ -71,10 +71,10 @@ const Menu2 = ({ items }) => {
                                     Servicios
                                 </a>
                                 <div className="navbar-dropdown">
-                                    <Link to="/" state={{am:0}} onClick={()=>handleIndex(0)} className="navbar-item">Diseño3D</Link>
-                                    <Link to="/" state={{am:1}} onClick={()=>handleIndex(1)} className="navbar-item">AR/VR</Link>
-                                    <Link to="/" state={{am:2}} onClick={()=>handleIndex(2)} className="navbar-item">Web</Link>
-                                    <Link to="/" state={{am:3}} onClick={()=>handleIndex(3)} className="navbar-item">Mapping</Link>
+                                    <Link to="/#diseño__3d" state={{am:0}} onClick={()=>handleIndex(0)} className="navbar-item">Diseño3D</Link>
+                                    <Link to="/#realidad_aumentada_y_realidad_virtual" state={{am:1}} onClick={()=>handleIndex(1)} className="navbar-item">AR/VR</Link>
+                                    <Link to="/#diseño_y_desarrollo_web" state={{am:2}} onClick={()=>handleIndex(2)} className="navbar-item">Web</Link>
+                                    <Link to="/#video_mapping" state={{am:3}} onClick={()=>handleIndex(3)} className="navbar-item">Mapping</Link>
                                 </div>
                             </div>
                         <div onClick={handleContacto} className="navbar-item">
@@ -118,11 +118,10 @@ const Menu2 = ({ items }) => {
                 <div className="modal-background"></div>
                 <div className="modal-card">
                     <div className="modal-card-body">
-                        <Form />
+                        <Form setClick={setClick}/>
                     </div>
 
                 </div>
-                <button onClick={handleClose} className="modal-close is-large" aria-label="close"></button>
             </div>
 
         </div >

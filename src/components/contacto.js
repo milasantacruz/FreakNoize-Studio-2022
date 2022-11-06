@@ -6,7 +6,7 @@ import { useFormik } from "formik";
 import { send } from 'emailjs-com';
 import "./contacto.scss"
 
-const Contacto = () => {
+const Contacto = ({setClick}) => {
 
     const iform = useRef();
     const txtArea = useRef();
@@ -54,10 +54,13 @@ const Contacto = () => {
 
     })
 
+    function handleC(){
+        setClick(false)
+    }
   
-
     return (
             <div className="formWrapper" >
+                <button className="button is-black is-large" onClick={handleC} style={{border:"solid blue 1px"}}>x</button>
                 <div className="outterShadow">
                     <div className="outter">
                     {

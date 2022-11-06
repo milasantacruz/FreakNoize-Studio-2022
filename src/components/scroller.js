@@ -10,7 +10,7 @@ const Scroller = ({data, loc, }) => {
     useState(()=>{
       setIndex(loc);
       console.log(loc)
-    },[loc])
+    },[])
 
  
     return (

@@ -22,11 +22,11 @@ useEffect(()=>{
             setInterval(()=>{
                 setClick(true)
             },1000)
-        }else{
-           // console.log("+")
-           
         }
+
     });
+
+  
 },[])
 
 
@@ -118,14 +118,12 @@ useEffect(()=>{
     }
 
     return (
-        <div>
                 <div>
                     <h1 className="continue title">
                         <FontAwesomeIcon beat={true} size={"xs"} icon={faComputerMouse} />
                     </h1>
                     <SceneComponent onRender={onRender} onSceneReady={onSceneReady} className={"sample-canvas"} />
                 </div>
-        </div >
     );
 }
 

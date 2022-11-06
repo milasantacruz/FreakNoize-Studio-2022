@@ -16,9 +16,11 @@ $blue2 : #120DA6;
     z-index: 8000;
     .navbar-brand{
         .navbar-item{
+           
             h1{
                 color:$blue1;
                 font-size: 2em;
+                
             }
         }
         .logo{
@@ -31,6 +33,7 @@ $blue2 : #120DA6;
         }
     }
 
+  
     .nested.dropdown {
         &:hover > .dropdown-menu {
           display: block;
@@ -120,4 +123,24 @@ $blue2 : #120DA6;
 .modal .modal-card .modal-card-body{
     background-color:rgba(0, 0, 0, 0);
 }
+
+@media(max-width: 992px){
+    .modal-card-body {
+      padding-top: 4em;
+    }
+
+    .navbar .navbar-menu.is-active {
+        background-color: #0c0c0c!important;
+      }
+
+      .navbar-menu {
+        border:solid 0.5px $blue2;
+      }
+
+
 }
+
+
+}
+
+

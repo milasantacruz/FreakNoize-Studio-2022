@@ -76,7 +76,7 @@ const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"
           <MediaQuery maxWidth={992}>
             {
                 data.allStrapiServicio.edges.map((e,i) =>{
-                // console.log(i)
+                console.log(i)
                   var current=false;
                   if(i%2 !== 0){
                     current=false;
@@ -85,11 +85,12 @@ const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"
                     current=true;
                     //console.log(current);
                   }
-
+                  var id=e.node.titulo.split(' ').join('_').toLowerCase()
+                  console.log(id)
                   return(
                     
                     <div  key={e.node.titulo} >
-                      <Section id="prueba"  data={e} prop1={current} />
+                      <Section id={id} data={e} prop1={current} />
                     </div>
                   )
                 })
@@ -101,8 +102,11 @@ const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"
           </MediaQuery>
         </Layout>
         :
+        <div>
+          <MediaQuery minWidth={992}><Fkr setClick={setClick}/></MediaQuery>
+          <MediaQuery maxWidth={992}></MediaQuery>
+        </div>
         
-        <Fkr setClick={setClick}/>
         }
          
       </div>

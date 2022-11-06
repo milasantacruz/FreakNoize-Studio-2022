@@ -17,6 +17,9 @@ import Section from "../components/section"
 
 
 const IndexPage = ({data, location}) => {
+
+  var [click, setClick] = useState(false)
+
  
   // useEffect(()=>{
   //   data.allStrapiServicio.edges.map((e,i)=>{
@@ -30,6 +33,7 @@ const IndexPage = ({data, location}) => {
 
     if(location.state){
       console.log(location.state.am, loc)
+      setClick(true)
       setLoc(location.state.am);
       console.log(location.state.am, loc)
      }
@@ -37,20 +41,17 @@ const IndexPage = ({data, location}) => {
   },[location])
 
   
-  //CATEGORIAS
-  var[categorias, setCategorias] = useState(false)
-
-  var [click, setClick] = useState(false)
-
+ 
   const escFunction = useCallback((event) => {
     if (event.key === "Escape") {
         console.log("esc")
-        setClick(true)
     }
+
+   
 }, []);
 
   useEffect(() => {
-
+    
     document.addEventListener("keydown", escFunction, false);
 
     return () => {
@@ -88,7 +89,7 @@ const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"
                   return(
                     
                     <div  key={e.node.titulo} >
-                      <Section id="prueba"  data={e} prop1={current} categorias={categorias} setCategorias={setCategorias} />
+                      <Section id="prueba"  data={e} prop1={current} />
                     </div>
                   )
                 })
@@ -96,13 +97,14 @@ const leave = useSpring({ to: { opacity: 0, x:"-500px"}, from: { opacity: 1, x:"
           </MediaQuery>
           
           <MediaQuery minWidth={992} >
-            <Scroller data={data} location={loc} categorias={categorias} setCategorias={setCategorias}/>
+            <Scroller data={data} location={loc}/>
           </MediaQuery>
         </Layout>
-          :
-          <Fkr/>
+        :
+        
+        <Fkr setClick={setClick}/>
         }
-       
+         
       </div>
       </LandingIndexProvider>
   )

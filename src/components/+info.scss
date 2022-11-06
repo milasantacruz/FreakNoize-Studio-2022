@@ -18,4 +18,16 @@ $blue2 : #120DA6;
     .button:hover{
         color:white;
     }
+
+    .list{
+        margin-left:0;
+        .list-item{
+            border-bottom: solid #ffffff 0.5px!important;
+        }
+        .list-item:hover {
+            //background-color: $blue2!important;
+            background: rgb(55,227,255)!important;
+            background: linear-gradient(128deg, rgba(55,227,255,1) 0%, rgba(14,0,255,1) 23%, rgba(230,230,230,0) 51%)!important;
+          }
+    }
 }

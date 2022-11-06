@@ -12,7 +12,7 @@ const Menu2 = ({ items }) => {
 
     const escFunction = useCallback((event) => {
         if (event.key === "Escape") {
-            console.log("esc")
+           // console.log("esc")
             setClick(false)
         }
     }, []);
@@ -99,7 +99,7 @@ const Menu2 = ({ items }) => {
                                                 });
                                             }
                                             var currentLink = e.replaceAll('_', " ");
-                                            console.log(e, currentLink)
+                                           // console.log(e, currentLink)
                                             return (
                                                 <li key={e+i} className="p-1" ><AnchorLink href={`/${e}`} >{currentLink}</AnchorLink></li>
                                             )

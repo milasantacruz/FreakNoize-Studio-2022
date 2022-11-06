@@ -23,7 +23,7 @@ const Layout = ({ children, items , elems}) => {
     }
   `)
  useEffect(()=>{
-  console.log(items)
+ // console.log(items)
  },[items])
   return (
     <LandingIndexProvider>

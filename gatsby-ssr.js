@@ -5,14 +5,14 @@
  */
 
 // You can delete this file if you're not using it
-import React from 'react'
-// import Loader from "./src/components/fkrScene"
+//import React from 'react'
+//import Fkr from "./src/components/fkrScene"
 export const onRenderBody = ({
     setPreBodyComponents,
     setBodyAttributes,
 }) => {
     setPreBodyComponents([
-    //   <Loader key={"loader"+123} />
+    //   <Fkr key={"loader"+123} />
     ])
 
     

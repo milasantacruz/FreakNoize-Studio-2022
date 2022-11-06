@@ -3,6 +3,7 @@
  *
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
+//browserClientEntry onInitialClientRender 
 
 // You can delete this file if you're not using it
 export const onClientEntry = () => {

@@ -33,7 +33,7 @@ const Contacto = () => {
         },
         validationSchema: schema,
         onSubmit:(values) =>{
-            console.log(JSON.stringify(values))
+           // console.log(JSON.stringify(values))
             send(
                 'service_3z9a2of',
                 'template_qlv8sjt',
@@ -42,11 +42,11 @@ const Contacto = () => {
               ).then((response)=>{
                 setOutput("Thank you! your message has been sent")
                 iform.current.reset();
-                console.log(response);
+               // console.log(response);
             
               }).catch((err)=>{
                 setOutput("Something went wrong! try again in a few minutes")
-                console.log('FAILED...', err);
+               // console.log('FAILED...', err);
                 iform.current.reset();
                 txtArea.current.value = ""
               })

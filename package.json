@@ -15,6 +15,7 @@
     "babylonjs-hook": "0.1.0-beta.0",
     "babylonjs-loaders": "^5.30.0",
     "bulma": "^0.9.3",
+    "bulma-list": "^1.2.0",
     "deepmerge": "^4.2.2",
     "emailjs-com": "^3.2.0",
     "formik": "^2.2.9",

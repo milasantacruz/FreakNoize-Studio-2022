@@ -2,6 +2,7 @@ import React from 'react';
 import "./+info.scss"
 import {Link} from "gatsby"
 const Info = ({categorias}) => {
+    console.log(window.location.host)
     //console.log(categorias)
     return (
         <div className="masInfo">

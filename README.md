@@ -1,5 +1,5 @@
 # Prototipo web FreakStudio I
-[Go to →](https://3dprintweb.netlify.app)
+[Go to →](https://freaknoizestudio.netlify.app/)
 
 **Tecnologias:**
 - Gatsby
